@@ -319,8 +319,13 @@ textarea {
 	padding: 5px 0;
 	border-bottom: none;
 }
+#footer-widget-area .widget ul li a b {
+	font-weight: normal;
+}
 
-#footer-widget-area img.avatar {
+#footer-widget-area .item-avatar {
+	width: 65px;
+	height: 65px;
 	float: left;
 	margin: 3px;
 	border: 2px solid #6daa36;
@@ -329,8 +334,11 @@ textarea {
 	   -moz-transition: border .3s ease-in-out;
 			transition: border .3s ease-in-out;
 }
-#footer-widget-area img.avatar:hover {
+#footer-widget-area .item-avatar:hover {
 	border-color: #ccc;
+}
+#footer-widget-area .item-avatar a {
+	display: block;
 }
 
 #site-generator {
