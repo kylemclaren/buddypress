@@ -3,6 +3,7 @@
 Thumbs.db
 desktop.ini
 wp-config.php
+wp-content/uploads/*
 .DS_Store
 .buildpath
 .project
