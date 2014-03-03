@@ -1,0 +1,10 @@
+*~
+*.bak
+Thumbs.db
+desktop.ini
+wp-config.php
+.DS_Store
+.buildpath
+.project
+.settings
+*.tmproj
