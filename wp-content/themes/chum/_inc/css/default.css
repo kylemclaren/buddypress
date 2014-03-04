@@ -1792,6 +1792,7 @@ ul.button-nav li.current a {
 	clear: both;
 	text-align: center;
 	margin-top: 30px;
+	min-height: 80px;
 }
 
 
