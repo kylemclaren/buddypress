@@ -35,6 +35,20 @@ if ( ! function_exists( 'bp_is_active' ) ) {
 }
 
 /**
+ * Define Avatar Size.
+ */
+if ( !defined( 'BP_AVATAR_THUMB_WIDTH' ) )
+	define( 'BP_AVATAR_THUMB_WIDTH', 150 );
+
+if ( !defined( 'BP_AVATAR_THUMB_HEIGHT' ) )
+	define( 'BP_AVATAR_THUMB_HEIGHT', 150 );
+
+/**
+ * Don't show the toolbar on front end by default
+ */
+add_filter('show_admin_bar', '__return_false');
+
+/**
  * Set the content width based on the theme's design and stylesheet.
  *
  * Used to set the width of images and content. Should be equal to the width the theme
@@ -212,6 +226,7 @@ function bp_dtheme_enqueue_styles() {
 
 	// Enqueue the main stylesheet
 	wp_enqueue_style( 'bp-default-main' );
+	wp_enqueue_style( 'bp-temp-css', get_template_directory_uri() . '/_inc/fonts/opensans.css', array(), bp_get_version() ); // Don't forget to delete
 
 	// Default CSS RTL
 	if ( is_rtl() )
@@ -840,14 +855,3 @@ function bn_alter_query( $query ) {
   }
 }
 add_action( 'pre_get_posts', 'bn_alter_query' );
-
-
-/**
- * Define Avatar Size.
- */
-
-if ( !defined( 'BP_AVATAR_THUMB_WIDTH' ) )
-	define( 'BP_AVATAR_THUMB_WIDTH', 150 );
-
-if ( !defined( 'BP_AVATAR_THUMB_HEIGHT' ) )
-	define( 'BP_AVATAR_THUMB_HEIGHT', 150 );

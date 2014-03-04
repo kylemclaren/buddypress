@@ -175,6 +175,7 @@ textarea {
 #header .button-group {
 	float: right;
 	padding: 5px 0;
+	font-size: .875em;
 }
 #header .button-group .button:hover {
 	margin-top: 0;
@@ -329,6 +330,7 @@ textarea {
 	float: left;
 	margin: 3px;
 	border: 2px solid #6daa36;
+	overflow: hidden;
 
 	-webkit-transition: border .3s ease-in-out;
 	   -moz-transition: border .3s ease-in-out;
@@ -339,6 +341,18 @@ textarea {
 }
 #footer-widget-area .item-avatar a {
 	display: block;
+}
+
+#footer-widget-area .item-avatar a img {
+	-webkit-transition: all .3s ease-in-out;
+	   -moz-transition: all .3s ease-in-out;
+			transition: all .3s ease-in-out;
+}
+
+#footer-widget-area .item-avatar:hover a img {
+	-webkit-transform: scale(1.1);
+	   -moz-transform: scale(1.1);
+			transform: scale(1.1);
 }
 
 #site-generator {
