@@ -15,25 +15,9 @@
 
 <?php if ( bp_has_groups( bp_ajax_querystring( 'groups' ) ) ) : ?>
 
-	<div id="pag-top" class="pagination">
-
-		<div class="pag-count" id="group-dir-count-top">
-
-			<?php bp_groups_pagination_count(); ?>
-
-		</div>
-
-		<div class="pagination-links" id="group-dir-pag-top">
-
-			<?php bp_groups_pagination_links(); ?>
-
-		</div>
-
-	</div>
-
 	<?php do_action( 'bp_before_directory_groups_list' ); ?>
 
-	<section id="groups-list" class="item-list" role="main">
+	<section class="item-list groups-list clear" role="main">
 
 	<?php while ( bp_groups() ) : bp_the_group(); ?>
 
@@ -59,19 +43,12 @@
 
 	<?php endwhile; ?>
 
-		
-
+	
 	</section>
 
 	<?php do_action( 'bp_after_directory_groups_list' ); ?>
 
 	<div id="pag-bottom" class="group-pagination pagination">
-
-		<div class="pag-count" id="group-dir-count-bottom">
-
-			<?php bp_groups_pagination_count(); ?>
-
-		</div>
 
 		<div class="pagination-links" id="group-dir-pag-bottom">
 

@@ -13,21 +13,22 @@ get_header( 'buddypress' ); ?>
 
 	<div id="content" class="site-content">
 
-		<div class="site-main" id="primary" role="main">
+		<div class="site-main group-directory-page" id="primary" role="main">
 
 		<?php do_action( 'bp_before_directory_groups' ); ?>
 
+		<h2 class="pagetitle"><span><?php _e( 'Groups', 'buddypress' ); ?></span></h2>
+
 		<form action="" method="post" id="groups-directory-form" class="dir-form">
 
-			<h3><?php _e( 'Groups Directory', 'buddypress' ); ?><?php if ( is_user_logged_in() && bp_user_can_create_groups() ) : ?> &nbsp;<a class="button" href="<?php echo trailingslashit( bp_get_root_domain() . '/' . bp_get_groups_root_slug() . '/create' ); ?>"><?php _e( 'Create a Group', 'buddypress' ); ?></a><?php endif; ?></h3>
-
+			
 			<?php do_action( 'bp_before_directory_groups_content' ); ?>
 
-			<div id="group-dir-search" class="dir-search" role="search">
-
+			<div id="group-dir-search" class="dir-search clear" role="search">
 				<?php bp_directory_groups_search_form(); ?>
-
+				<?php if ( is_user_logged_in() && bp_user_can_create_groups() ) : ?><a class="create-group-button button button-red" href="<?php echo trailingslashit( bp_get_root_domain() . '/' . bp_get_groups_root_slug() . '/create' ); ?>"><?php _e( 'Create a Group', 'buddypress' ); ?></a><?php endif; ?>
 			</div><!-- #group-dir-search -->
+				
 
 			<?php do_action( 'template_notices' ); ?>
 
@@ -67,6 +68,7 @@ get_header( 'buddypress' ); ?>
 				</ul>
 			</div>
 
+			<div class="clear"></div>
 			<div id="groups-dir-list" class="groups dir-list">
 
 				<?php locate_template( array( 'groups/groups-loop.php' ), true ); ?>

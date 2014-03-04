@@ -2654,51 +2654,57 @@ body.register div.page ul {
 /*--------------------------------------------------------------
 6.16 - Group Directory
 --------------------------------------------------------------*/
-#groups-list {
+.groups-list {
 	position: relative;
+	border-top: 1px solid #dddddd;
+	padding-top: 10px;
+	margin-top: 10px;
 }
-#groups-list .public,
-#groups-list .private {
+.groups-list .public,
+.groups-list .private,
+.groups-list .hidden {
 	position: relative;
 	float: left;
 	color: #ffffff;
 	margin: 10px 13px;
-
 }
-#groups-list .public a,
-#groups-list .private a {
+.groups-list .public a,
+.groups-list .private a,
+.groups-list .hidden a {
 	text-decoration: none;
 	color: #ffffff;
-
 }
-#groups-list .item-avatar img {
+.groups-list .item-avatar img {
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
 }
-#groups-list .public:nth-child(3n+1),
-#groups-list .private:nth-child(3n+1) {
+.groups-list .public:nth-child(3n+1),
+.groups-list .private:nth-child(3n+1),
+.groups-list .hidden:nth-child(3n+1) {
 	margin-left: 0;
 	clear: left;
 }
-#groups-list .public:nth-child(3n+3),
-#groups-list .private:nth-child(3n+3) {
+.groups-list .public:nth-child(3n+3),
+.groups-list .private:nth-child(3n+3),
+.groups-list .hidden:nth-child(3n+3) {
 	margin-right: 0;
 	clear: right;
 }
-#groups-list .item {
+.groups-list .item {
 	display: block;
 	position: absolute;
 	z-index: 999;
 	bottom: 0;
 	font-size: 0.9em;
 	padding: 10px;
+	text-shadow: 0 0px 2px #000;
 }
-#groups-list .item-title {
+.groups-list .item-title {
 	font-weight: bold;
 	font-size: 1.2em;
 }
-#groups-list .action {
+.groups-list .action {
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -2713,6 +2719,112 @@ body.register div.page ul {
 }
 .group-pagination:after {
 	clear: both;
+}
+.group-pagination {
+	display: block;
+	text-align: right;
+	margin: 20px 0;
+}
+.group-pagination a,
+.group-pagination span {
+	display: inline-block;
+	padding: 10px 13px;
+	font-weight: bold;
+	text-decoration: none;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+.group-pagination a {
+	background-color: #e7e7e7;
+	color: #999999;
+}
+.group-pagination span {
+	background-color: #999999;
+	color: #ffffff;
+}
+.group-directory-page .item-list-tabs a {
+	color: #333333;
+	text-decoration: none;
+	float: left;
+	line-height: 35px;
+	margin-right: 10px;
+}
+.group-directory-page .item-list-tabs span{
+	background-color: #999999;
+	color: #ffffff;
+	display: inline-block;
+	padding: 0 10px;
+	margin-left: 5px;
+	font-weight: bold;
+	text-decoration: none;
+	font-size: 1em;
+	line-height: 2em;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+.group-directory-page #groups-order-select select {
+	border: 1px solid #dddddd;
+	float: right;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+.group-directory-page #groups-order-select label {
+	display: none;
+}
+.group-directory-page .create-group-button {
+	font-size: 0.9em;
+	padding: 10px 15px;
+	float: right;
+	margin-top: 2px;
+}
+#group-dir-search {
+	float: left;
+	width: 100%;
+	display: block;
+	margin: 30px 0;
+}
+#group-dir-search #groups_search {
+	padding: 9px;
+	border: 1px solid #dddddd;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+.group-directory-page .pagetitle {
+	margin: 0;
+}
+#groups_search_submit {
+	display: inline-block;
+	vertical-align: top;
+	text-align: left;
+	font-weight: bold;
+	font-size: 1.25em;
+	padding: 15px 25px;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	text-decoration: none;
+	cursor: pointer;
+	background-color: #6daa36;
+	color: #ffffff;
+	border-bottom: 5px solid #5e9031;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	line-height: 1;
+}
+#groups_search_submit:hover {
+	color: #ffffff;
+	border-bottom-width: 2px;
+	position: relative;
+	margin-top: 3px;
+}
+#groups_search_submit {
+	font-size: 0.9em;
+	padding: 10px 15px;
 }
 /*--------------------------------------------------------------
 6.14 - Group Profile
