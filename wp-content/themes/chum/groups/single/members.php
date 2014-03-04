@@ -31,22 +31,6 @@ function online_check( $current_time ) {
 		</ul>
 	</div>
 
-	<div id="pag-top" class="pagination no-ajax">
-
-		<div class="pag-count" id="member-count-top">
-
-			<?php bp_members_pagination_count(); ?>
-
-		</div>
-
-		<div class="pagination-links" id="member-pag-top">
-
-			<?php bp_members_pagination_links(); ?>
-
-		</div>
-
-	</div>
-
 	<?php do_action( 'bp_before_group_members_list' ); ?>
 
 	<div id="members-list" class="item-list clear" role="main">
@@ -63,20 +47,8 @@ function online_check( $current_time ) {
 					<a href="<?php bp_group_member_domain(); ?>" class="member-name"><?php bp_member_name(); ?></a>
 					<div class="ol-status"><?php online_check( $current_time ); ?></div>
 				</div>
-				<?php bp_group_member_joined_since(); ?>
+				<div class="member-since"><?php bp_group_member_joined_since(); ?></div>
 				<?php do_action( 'bp_directory_members_item' ); ?>
-
-				<?php
-				 /***
-				  * If you want to show specific profile fields here you can,
-				  * but it'll add an extra query for each member in the loop
-				  * (only one regardless of the number of fields you show):
-				  *
-				  * bp_member_profile_data( 'field=the field name' );
-				  */
-
-				
-				?>
 
 				<a href="<?php bp_group_member_domain(); ?>" class="button button-gray clear">View Profile</a>
 			</div>
@@ -89,20 +61,13 @@ function online_check( $current_time ) {
 
 	<?php do_action( 'bp_after_group_members_list' ); ?>
 
-	<div id="pag-bottom" class="pagination no-ajax">
-
+	<div id="pag-bottom" class="members-pagination pagination no-ajax">
 		<div class="pag-count" id="member-count-bottom">
-
 			<?php bp_members_pagination_count(); ?>
-
 		</div>
-
 		<div class="pagination-links" id="member-pag-bottom">
-
 			<?php bp_members_pagination_links(); ?>
-
 		</div>
-
 	</div>
 
 	<?php do_action( 'bp_after_group_members_content' ); ?>

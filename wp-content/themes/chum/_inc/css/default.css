@@ -134,22 +134,9 @@ img {
 /*--------------------------------------------------------------
 2.1 - Content
 --------------------------------------------------------------*/
-
-div#content .one-column {
-	border-right: 0 none;
-	margin-right: 0;
-}
-div#content .left-menu {
-	float: left;
-	width: 170px;
-}
-div#content .main-column {
-	margin-left: 190px;
-}
 textarea {
 	overflow: auto;
 }
-
 
 /*--------------------------------------------------------------
 2.2 - Header
@@ -1795,9 +1782,6 @@ ul.button-nav li.current a {
 	min-height: 80px;
 }
 
-
-
-
 /*--------------------------------------------------------------
 6.6 - Buttons
 --------------------------------------------------------------*/
@@ -2374,6 +2358,9 @@ body.register div.page ul {
 	-moz-border-radius: 5px;
 	border-radius: 5px;
 }
+#members-list .member-item .member-since {
+	min-height: 40px;
+}
 .members-pagination.pagination {
 	display: block;
 	text-align: right;
@@ -2640,7 +2627,9 @@ body.register div.page ul {
 .group-profile .feed {
 	display: none;
 }
+.group-profile .admins-list {
 
+}
 /*--------------------------------------------------------------
 6.15 - Activate Page
 --------------------------------------------------------------*/
