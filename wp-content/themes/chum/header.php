@@ -27,7 +27,7 @@
 				<h1 id="logo" role="banner"><a href="<?php echo home_url(); ?>" title="<?php _ex( 'Home', 'Home page banner link title', 'buddypress' ); ?>"><?php bp_site_name(); ?></a></h1>
 				<?php if ( !is_user_logged_in() ) { ?>
 					<div class="button-group">
-						<a href='#' class="button">Login</a>
+						<a href='#' class="button" id="login">Login</a>
 						<a href='<?php echo bp_get_signup_page() ?>' class="button">Signup</a>
 					</div>
 				<?php	} else { ?>

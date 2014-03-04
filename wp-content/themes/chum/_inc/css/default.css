@@ -11,6 +11,7 @@ Hello, this is the Chum theme stylesheet.
 	2.3 - Footer
 	2.4 - Sidebar
 	2.5 - Clearings
+	2.6 - Custom Modal
 3.0 - Non-structural
 	3.1 - Text
 	3.2 - Headers
@@ -150,7 +151,7 @@ textarea {
 	color: #fff;
 	height: auto;
 	position: relative;
-	z-index: 1000;
+	z-index: 999;
 }
 #header #search-bar {
 	margin-top: 5px;
@@ -710,12 +711,12 @@ a:focus {
 	font-family: 'FontAwesome', 'Open Sans', sans-serif;
 	background-color: #b40127;
 	margin-top: 15px;
-	min-width: 150px;
+	min-width: 161px;
 	padding: 5px 0;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
-	left: -33%;
+	left: 0;
 }
 #nav > li > ul:before {
 	content: '\f0d8';
@@ -724,7 +725,8 @@ a:focus {
 	color: #b40127;
 	height: 20px;
 	font-size: 2.2em;
-	text-align: center;
+	/*text-align: center;*/
+	padding-left: 15px;
 	width: 100%;
 	top: -15px;
 	border-top: 1px solid transparent;
@@ -816,7 +818,6 @@ a:focus {
 div.post .navigation {
 	margin: 3em 0 .5em;
 	padding: 10px 0;
-	border-bottom: 1px solid #e7e7e7;
 }
 
 div.post .navigation a {
@@ -925,8 +926,10 @@ img.alignleft {
 div.page,
 div.post,
 div.attachment {
-	margin: 0 0 15px 0;
+	margin: 0 0 3em;
 	overflow: hidden;
+	padding-bottom: 3em;
+	border-bottom: 1px solid #e7e7e7;
 }
 div.page:last-child,
 div.post:last-child,

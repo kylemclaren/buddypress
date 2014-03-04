@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying 404 pages (Not Found).
+ * Template Name: Template - Right Sidebar
  *
  * @package Chum
  */
@@ -8,9 +8,11 @@ get_header(); ?>
 
 	<div id="content" class="site-content">
 
+		<?php get_sidebar(); ?>
+
 		<?php do_action( 'bp_before_blog_page' ); ?>
 
-		<div class="site-main" id="primary" role="main">
+		<div class="site-main" id="primary" role="main" style="margin-right:0; margin-left:2%;">
 
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 				
@@ -36,8 +38,6 @@ get_header(); ?>
 		</div><!-- .site-main .page -->
 
 		<?php do_action( 'bp_after_blog_page' ); ?>
-
-		<?php get_sidebar(); ?>
 		
 		<?php get_template_part('template', 'subfooter'); ?>
 

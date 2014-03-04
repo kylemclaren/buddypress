@@ -5,7 +5,6 @@
  * @package Chum
  */
 get_header(); ?>
-	</div>
 
 	<?php if ( !is_user_logged_in() ) : ?>
 	<div id="register-banner">
