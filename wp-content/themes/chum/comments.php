@@ -68,7 +68,31 @@
 
 <?php endif; ?>
 
-<?php if ( comments_open() ) comment_form(); ?>
+<?php if ( comments_open() )
+	$fields = array(
+		'author' =>
+			'<p class="comment-form-author"><label for="author">' . __( 'Name', 'chum' ) . '</label> ' .
+			( $req ? '<span class="required">*</span>' : '' ) .
+			'<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) .
+			'" size="30"' . $aria_req . ' /></p>',
+
+		'email' =>
+			'<p class="comment-form-email"><label for="email">' . __( 'Email', 'chum' ) . '</label> ' .
+			( $req ? '<span class="required">*</span>' : '' ) .
+			'<input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) .
+			'" size="30"' . $aria_req . ' /></p>',
+	);
+	$comment_args = array(
+		'fields'				=> $fields,
+		'title_reply'			=> __( 'Leave a Reply' ),
+		'cancel_reply_link'		=> __('Cancel Reply'),
+		'label_submit'      	=> __( 'Send Message' ),
+		'comment_notes_after'	=> '',
+		'comment_field'			=> '<p class="comment-form-comment"><label for="comment">' . _x( 'Comment ', 'noun' ) . ( $req ? '<span class="required">*</span>' : '' ) . '</label><textarea id="comment" name="comment" ' . $aria_req . '></textarea></p>',
+	);
+	comment_form( $comment_args );
+
+?>
 
 <?php if ( !empty( $num_trackbacks ) ) : ?>
 	<div id="trackbacks">
@@ -82,7 +106,7 @@
 						<h5><?php comment_author_link(); ?></h5>
 						<em>on <?php comment_date(); ?></em>
 					</li>
- 				<?php endif; ?>
+				<?php endif; ?>
 
 			<?php endforeach; ?>
 		</ul>

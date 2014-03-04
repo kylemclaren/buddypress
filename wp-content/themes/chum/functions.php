@@ -226,7 +226,7 @@ function bp_dtheme_enqueue_styles() {
 
 	// Enqueue the main stylesheet
 	wp_enqueue_style( 'bp-default-main' );
-	wp_enqueue_style( 'bp-temp-css', get_template_directory_uri() . '/_inc/fonts/opensans.css', array(), bp_get_version() ); // Don't forget to delete
+	wp_enqueue_style( 'bp-temp-css', get_template_directory_uri() . '/_inc/css/temp.css', array(), bp_get_version() ); // Don't forget to delete
 
 	// Default CSS RTL
 	if ( is_rtl() )
@@ -384,10 +384,6 @@ function bp_dtheme_header_style() {
 ?>
 
 	<style type="text/css">
-		<?php if ( !empty( $header_image ) ) : ?>
-			#header { background-image: url(<?php echo $header_image ?>); }
-		<?php endif; ?>
-
 		<?php if ( 'blank' == get_header_textcolor() ) { ?>
 		#header h1, #header #desc { display: none; }
 		<?php } else { ?>
@@ -425,8 +421,8 @@ function bp_dtheme_widgets_init() {
 		'name'          => 'Sidebar',
 		'id'            => 'sidebar-1',
 		'description'   => __( 'The sidebar widget area', 'buddypress' ),
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</div>',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
 		'before_title'  => '<h3 class="widgettitle">',
 		'after_title'   => '</h3>'
 	) );
@@ -500,32 +496,26 @@ function bp_dtheme_blog_comments( $comment, $args, $depth ) {
 		return false;
 
 	if ( 1 == $depth )
-		$avatar_size = 50;
+		$avatar_size = 100;
 	else
-		$avatar_size = 25;
+		$avatar_size = 100;
 	?>
 
 	<li <?php comment_class(); ?> id="comment-<?php comment_ID(); ?>">
 		<div class="comment-avatar-box">
-			<div class="avb">
-				<a href="<?php echo get_comment_author_url(); ?>" rel="nofollow">
-					<?php if ( $comment->user_id ) : ?>
-						<?php echo bp_core_fetch_avatar( array( 'item_id' => $comment->user_id, 'width' => $avatar_size, 'height' => $avatar_size, 'email' => $comment->comment_author_email ) ); ?>
-					<?php else : ?>
-						<?php echo get_avatar( $comment, $avatar_size ); ?>
-					<?php endif; ?>
-				</a>
-			</div>
+			<?php if ( $comment->user_id ) : ?>
+				<?php echo bp_core_fetch_avatar( array( 'item_id' => $comment->user_id, 'width' => $avatar_size, 'height' => $avatar_size, 'email' => $comment->comment_author_email ) ); ?>
+			<?php else : ?>
+				<?php echo get_avatar( $comment, $avatar_size ); ?>
+			<?php endif; ?>
 		</div>
 
 		<div class="comment-content">
 			<div class="comment-meta">
-				<p>
-					<?php
-						/* translators: 1: comment author url, 2: comment author name, 3: comment permalink, 4: comment date/timestamp*/
-						printf( __( '<a href="%1$s" rel="nofollow">%2$s</a> said on <a href="%3$s"><span class="time-since">%4$s</span></a>', 'buddypress' ), get_comment_author_url(), get_comment_author(), get_comment_link(), get_comment_date() );
-					?>
-				</p>
+				<?php
+					/* translators: 1: comment author url, 2: comment author name, 3: comment permalink, 4: comment date/timestamp*/
+					printf( __( '<a href="%1$s" rel="nofollow" class="author">%2$s</a><br /><span class="time-since">%3$s</span>', 'buddypress' ), get_comment_author_url(), get_comment_author(), get_comment_date() );
+				?>
 			</div>
 
 			<div class="comment-entry">
@@ -537,17 +527,18 @@ function bp_dtheme_blog_comments( $comment, $args, $depth ) {
 			</div>
 
 			<div class="comment-options">
-					<?php if ( comments_open() ) : ?>
-						<?php comment_reply_link( array( 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ); ?>
-					<?php endif; ?>
+				<?php if ( comments_open() ) : ?>
+					<?php comment_reply_link( array( 'reply_text' => '<i class="fa fa-reply"></i> Reply', 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ); ?>
+				<?php endif; ?>
 
-					<?php if ( current_user_can( 'edit_comment', $comment->comment_ID ) ) : ?>
-						<?php printf( '<a class="button comment-edit-link bp-secondary-action" href="%1$s" title="%2$s">%3$s</a> ', get_edit_comment_link( $comment->comment_ID ), esc_attr__( 'Edit comment', 'buddypress' ), __( 'Edit', 'buddypress' ) ); ?>
-					<?php endif; ?>
-
+				<?php if ( current_user_can( 'edit_comment', $comment->comment_ID ) ) : ?>
+					<?php printf( '<a class="button comment-edit-link bp-secondary-action" href="%1$s" title="%2$s"><i class="fa fa-pencil"></i> %3$s</a> ', get_edit_comment_link( $comment->comment_ID ), esc_attr__( 'Edit comment', 'buddypress' ), __( 'Edit', 'buddypress' ) ); ?>
+				<?php endif; ?>
 			</div>
 
 		</div>
+
+	</li>
 
 <?php
 }
@@ -695,54 +686,6 @@ function bp_dtheme_comment_form( $default_labels ) {
 	return apply_filters( 'bp_dtheme_comment_form', array_merge( $default_labels, $new_labels ) );
 }
 add_filter( 'comment_form_defaults', 'bp_dtheme_comment_form', 10 );
-endif;
-
-if ( !function_exists( 'bp_dtheme_before_comment_form' ) ) :
-/**
- * Adds the user's avatar before the comment form box.
- *
- * The 'comment_form_top' action is used to insert our HTML within <div id="reply">
- * so that the nested comments comment-reply javascript moves the entirety of the comment reply area.
- *
- * @see comment_form()
- * @since BuddyPress (1.5)
- */
-function bp_dtheme_before_comment_form() {
-?>
-	<div class="comment-avatar-box">
-		<div class="avb">
-			<?php if ( bp_loggedin_user_id() ) : ?>
-				<a href="<?php echo bp_loggedin_user_domain(); ?>">
-					<?php echo get_avatar( bp_loggedin_user_id(), 50 ); ?>
-				</a>
-			<?php else : ?>
-				<?php echo get_avatar( 0, 50 ); ?>
-			<?php endif; ?>
-		</div>
-	</div>
-
-	<div class="comment-content standard-form">
-<?php
-}
-add_action( 'comment_form_top', 'bp_dtheme_before_comment_form' );
-endif;
-
-if ( !function_exists( 'bp_dtheme_after_comment_form' ) ) :
-/**
- * Closes tags opened in bp_dtheme_before_comment_form().
- *
- * @see bp_dtheme_before_comment_form()
- * @see comment_form()
- * @since BuddyPress (1.5)
- */
-function bp_dtheme_after_comment_form() {
-?>
-
-	</div><!-- .comment-content standard-form -->
-
-<?php
-}
-add_action( 'comment_form', 'bp_dtheme_after_comment_form' );
 endif;
 
 if ( !function_exists( 'bp_dtheme_sidebar_login_redirect_to' ) ) :
