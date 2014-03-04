@@ -260,15 +260,15 @@
 
 			<?php if ( 'completed-confirmation' == bp_get_current_signup_step() ) : ?>
 
-				<h2><?php _e( 'Check Your Email To Activate Your Account!', 'buddypress' ); ?></h2>
+				<h2 style="text-align: center;"><?php _e( 'Check Your Email To Activate Your Account!', 'buddypress' ); ?></h2>
 
 				<?php do_action( 'template_notices' ); ?>
 				<?php do_action( 'bp_before_registration_confirmed' ); ?>
 
 				<?php if ( bp_registration_needs_activation() ) : ?>
-					<p><?php _e( 'You have successfully created your account! To begin using this site you will need to activate your account via the email we have just sent to your address.', 'buddypress' ); ?></p>
+					<p style="text-align: center;"><?php _e( 'You have successfully created your account! To begin using this site you will need to activate your account via the email we have just sent to your address.', 'buddypress' ); ?></p>
 				<?php else : ?>
-					<p><?php _e( 'You have successfully created your account! Please log in using the username and password you have just created.', 'buddypress' ); ?></p>
+					<p style="text-align: center;"><?php _e( 'You have successfully created your account! Please log in using the username and password you have just created.', 'buddypress' ); ?></p>
 				<?php endif; ?>
 
 				<?php do_action( 'bp_after_registration_confirmed' ); ?>

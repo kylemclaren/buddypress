@@ -10,9 +10,11 @@ get_header(); ?>
 	<?php if ( !is_user_logged_in() ) : ?>
 	<div id="register-banner">
 		<div class="wrap">
+			<!--
 			<div class="register-form">
-				<?php get_template_part( 'form', 'register' ); ?>
+				<?php// get_template_part( 'form', 'register' ); ?>
 			</div>
+			-->
 			<div class="register-info">
 				<h2>Hello!</h2>
 				<h3>CONNECT WITH YOUR FRIENDS<br/>AROUND THE WORLD</h3>
@@ -23,8 +25,8 @@ get_header(); ?>
 	</div>
 	<?php endif; ?>
 
-	<div id="content" class="site-content">
-		<div class="site-main page" role="main">
+	<div id="content" class="site-content with-banner">
+		<div class="site-main" role="main">
 			<?php do_action( 'bp_before_blog_page' ); ?>
 
 				<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
@@ -39,7 +41,6 @@ get_header(); ?>
 							<?php the_content( __( '<p class="serif">Read the rest of this page &rarr;</p>', 'buddypress' ) ); ?>
 
 							<?php wp_link_pages( array( 'before' => '<div class="page-link"><p>' . __( 'Pages: ', 'buddypress' ), 'after' => '</p></div>', 'next_or_number' => 'number' ) ); ?>
-							<?php edit_post_link( __( 'Edit this page.', 'buddypress' ), '<p class="edit-link">', '</p>'); ?>
 
 						</div>
 

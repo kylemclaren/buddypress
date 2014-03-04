@@ -8,11 +8,11 @@
  */
 get_header(); ?>
 
-	<div id="content" class="site-content">
+	<div id="content" class="site-content <?php $check_post = $post->post_content; if(has_shortcode($check_post, 'googleMapStatic')) { echo 'withmap'; } ?>">
 		
 		<?php do_action( 'bp_before_blog_page' ); ?>
 
-		<div class="site-main page" role="main">
+		<div class="site-main" role="main">
 
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 

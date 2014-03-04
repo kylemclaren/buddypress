@@ -8,7 +8,7 @@ if( empty( $bp->signup->step ) ) {
 error_reporting(1);
 ?>
 		<?php do_action( 'bp_before_register_page' ); ?>
-			<form action="<?php echo bp_get_root_domain().'/'.BP_REGISTER_SLUG;?>" name="signup_form" id="signup_form" class="standard-form clear" method="post" enctype="multipart/form-data">
+			<form action="" name="signup_form" id="signup_form" class="standard-form clear" method="post" enctype="multipart/form-data">
 
 			<?php if ( 'registration-disabled' == bp_get_current_signup_step() ) : ?>
 				<?php do_action( 'template_notices' ); ?>
@@ -37,7 +37,7 @@ error_reporting(1);
 
 					<label for="signup_email"><?php _e( 'Email Address', 'buddypress' ); ?> <?php _e( '(required)', 'buddypress' ); ?></label>
 					<?php do_action( 'bp_signup_email_errors' ); ?>
-					<input type="text" name="signup_email" id="signup_email" value="<?php bp_signup_email_value(); ?>" />
+					<input type="email" name="signup_email" id="signup_email" value="<?php bp_signup_email_value(); ?>" />
 
 					<label for="signup_password"><?php _e( 'Choose a Password', 'buddypress' ); ?> <?php _e( '(required)', 'buddypress' ); ?></label>
 					<?php do_action( 'bp_signup_password_errors' ); ?>

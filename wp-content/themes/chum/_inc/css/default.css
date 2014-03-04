@@ -24,6 +24,7 @@ Hello, this is the Chum theme stylesheet.
 	5.4 - Images
 	5.5 - Posts
 		5.5.1 - Blog Page
+		5.5.2 - Contact Page
 	5.6 - Error404
 	5.7 - Sidebar Widget
 6.0 - BuddyPress
@@ -110,6 +111,9 @@ input {
 	background-color: #ffffff;
 	box-shadow: 0 10px 25px #ccc, 0 -10px 25px #ccc;
 	padding: 4em 20px 2em;
+}
+.site-content.with-banner {
+	padding: 6em 20px 2em;
 }
 
 .site-main {
@@ -216,7 +220,7 @@ textarea {
 }
 
 #footer-widget-area .widget_text img {
-	max-width: 80px;
+	max-width: 85px;
 	float: left;
 	margin-right: 5px;
 }
@@ -483,6 +487,7 @@ div#sidebar div.tags div#tag-text {
 --------------------------------------------------------------*/
 p {
 	margin-bottom: 15px;
+	line-height: 1.3;
 }
 p:last-child {
 	margin-bottom: 0;
@@ -1114,6 +1119,7 @@ div.post .entry-img {
 --------------------------------------------------------------*/
 .page-404 {
 	text-align: center;
+	min-height: 213px;
 }
 .page-404 .posttitle {
 	font-family: 'GoodDogPlainRegular', sans-serif;
@@ -1740,7 +1746,7 @@ ul.button-nav li.current a {
 	margin: 0 1%;
 	padding: 10px 20px;
 	line-height: 1.25em;
-	min-height: 470px;
+	min-height: 450px;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
@@ -2267,7 +2273,8 @@ body.no-js .field-visibility-settings-close {
 .field-visibility-settings,
 .field-visibility-settings-toggle,
 .field-visibility-settings-notoggle {
-	color: #888;
+	color: #999;
+	font-size: .875em;
 }
 .field-visibility-settings-toggle a,
 .field-visibility-settings a {
@@ -2637,8 +2644,11 @@ body.register div.page ul {
 	text-align: center;
 	min-height: 300px;
 }
-#activate-page .button {
+#activate-page .submit {
 	margin-top: 30px;
+}
+#activate-page .button {
+	padding: 10px 20px;
 }
 
 /*--------------------------------------------------------------
@@ -2912,19 +2922,35 @@ body.register div.page ul {
 #register-banner .register-section {
 	padding-top: 10px;
 }
+#register-banner .register-section label {
+	margin-bottom: 4px;
+	display: inline-block;
+}
 #register-banner .register-form input[type="text"],
+#register-banner .register-form input[type="email"],
 #register-banner .register-form input[type="password"] {
-	width: 95%;
+	display: block;
+	width: 100%;
 	background-color: #efe7de;
 	margin-bottom: 15px;
-	border:none;
-	border-bottom: 1px solid #fffaf5;
-	-webkit-box-shadow: inset 0px 8px 11px -5px rgba(0,0,0,0.2);
-	-moz-box-shadow:	inset 0px 8px 11px -5px rgba(0,0,0,0.2);
-	box-shadow:			inset 0px 8px 11px -5px rgba(0,0,0,0.2);
+	padding: 8px;
+	border: none;
+	border-radius: 0;
+	-webkit-box-shadow: inset 0px 5px 11px -5px rgba(0,0,0,0.2);
+	-moz-box-shadow:	inset 0px 5px 11px -5px rgba(0,0,0,0.2);
+	box-shadow:			inset 0px 5px 11px -5px rgba(0,0,0,0.2);
 }
-#register-banner .register-form input:focus {
+#register-banner .register-form input[type="text"]:focus,
+#register-banner .register-form input[type="password"]:focus,
+#register-banner .register-form input[type="email"]:focus {
 	background-color: #fff7ef;
+	color: #404040;
+}
+
+#register-banner .register-form input[type="submit"] {
+	padding: 10px 20px;
+	font-size: 1.125em;
+	font-family: 'OpenSansSemibold', sans-serif;
 }
 
 /*--------------------------------------------------------------

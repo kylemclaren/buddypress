@@ -201,6 +201,7 @@ div.comment-meta em {
 #respond .comment-form input[type="submit"]:hover,
 #respond .comment-form input[type="submit"]:focus {
 	background: #a80528;
+	border: 1px solid #555;
 }
 
 ol.commentlist #respond {
@@ -227,4 +228,84 @@ h3#reply .comments-header {
 .comment-options .comment-edit-link {
 	margin-right: 5px;
 	text-decoration: none;
+}
+
+
+/*--------------------------------------------------------------
+5.5.2 - Contact Page
+--------------------------------------------------------------*/
+.site-content.withmap {
+	padding-top: 500px;
+}
+
+.gmap {
+	position: absolute !important;
+	top: 109px;
+	left: 0;
+	width: 100%;
+	height: 450px;
+	overflow: hidden;
+}
+
+.contact-form-container {
+	float: left;
+	width: 49%;
+	padding-right: 3%;
+}
+.contact-form-container:after {
+	clear: both;
+	content: '';
+	display: table;
+}
+
+.contact-form-container label {
+	display: inline-block;
+	margin-bottom: 3px;
+}
+.contact-form-container label i {
+	color: #da0734;
+}
+
+.contact-form-container input[type="text"],
+.contact-form-container input[type="email"],
+.contact-form-container textarea {
+	padding: 8px;
+	border: 1px solid #dadada;
+	border-radius: 2px;
+	display: block;
+	width: 100%;
+}
+
+.contact-form-container textarea {
+	min-height: 100px;
+}
+
+.contact-form-container input[type="text"]:hover,
+.contact-form-container input[type="email"]:hover,
+.contact-form-container textarea:hover {
+	color: #555;
+	border: 1px solid #aaa;
+}
+.contact-form-container input[type="text"]:focus,
+.contact-form-container input[type="email"]:focus,
+.contact-form-container textarea:focus {
+	color: #333;
+	border: 1px solid #555;
+}
+
+.contact-form-container button[type="submit"] {
+	background: #da0734;
+	border: none;
+	border-radius: 3px;
+	padding: 7px;
+	color: #fff;
+	float: right;
+	display: block;
+	min-width: 150px;
+	font-family: 'OpenSansSemibold', sans-serif;
+	cursor: pointer;
+}
+.contact-form-container button[type="submit"]:hover,
+.contact-form-container button[type="submit"]:focus {
+	background: #a80528;
 }
