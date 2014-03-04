@@ -43,6 +43,8 @@ Hello, this is the Chum theme stylesheet.
 	6.11 - Extended Profiles
 	6.12 - Member List Page
 	6.13 - User Profile
+	6.14 - Group Profile
+	6.15 - Activate Page
 7.0 - Templates
 	7.1 - Page with Registration Banner
 	7.2 - Sub Footer
@@ -1579,7 +1581,10 @@ body.no-js #whats-new-options {
 .activity-list iframe {
 	width: 100%;
 }
-
+.activity-list .avatar-20 {
+	margin-right: 5px;
+	margin-bottom: -4px;
+}
 
 /*--------------------------------------------------------------
 6.1.2 - Activity Comments
@@ -2792,6 +2797,83 @@ body.register div.page ul {
 	display: none;
 }
 
+/*--------------------------------------------------------------
+6.15 - Activate Page
+--------------------------------------------------------------*/
+#activate-page {
+	text-align: center;
+	min-height: 300px;
+}
+#activate-page .button {
+	margin-top: 30px;
+}
+
+/*--------------------------------------------------------------
+6.16 - Group Directory
+--------------------------------------------------------------*/
+#groups-list {
+	position: relative;
+}
+#groups-list .public,
+#groups-list .private {
+	position: relative;
+	float: left;
+	color: #ffffff;
+	margin: 10px 13px;
+
+}
+#groups-list .public a,
+#groups-list .private a {
+	text-decoration: none;
+	color: #ffffff;
+
+}
+#groups-list .item-avatar img {
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+#groups-list .public:nth-child(3n+1),
+#groups-list .private:nth-child(3n+1) {
+	margin-left: 0;
+	clear: left;
+}
+#groups-list .public:nth-child(3n+3),
+#groups-list .private:nth-child(3n+3) {
+	margin-right: 0;
+	clear: right;
+}
+#groups-list .item {
+	display: block;
+	position: absolute;
+	z-index: 999;
+	bottom: 0;
+	font-size: 0.9em;
+	padding: 10px;
+}
+#groups-list .item-title {
+	font-weight: bold;
+	font-size: 1.2em;
+}
+#groups-list .action {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+.group-pagination {
+	display: block;
+}
+.group-pagination:before,
+.group-pagination:after {
+	content: '';
+	display: table;
+}
+.group-pagination:after {
+	clear: both;
+}
+/*--------------------------------------------------------------
+6.14 - Group Profile
+--------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
 7.0 Templates

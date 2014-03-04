@@ -12,8 +12,6 @@ get_header( 'buddypress' ); ?>
 	<?php do_action( 'bp_before_directory_groups_page' ); ?>
 
 	<div id="content" class="site-content">
-		
-		<?php get_sidebar( 'buddypress' ); ?>
 
 		<div class="site-main" id="primary" role="main">
 
@@ -86,6 +84,8 @@ get_header( 'buddypress' ); ?>
 		<?php do_action( 'bp_after_directory_groups' ); ?>
 
 		</div> <!-- #primary -->
+
+		<?php get_sidebar( 'buddypress' ); ?>
 		
 	</div> <!-- .site-content -->
 

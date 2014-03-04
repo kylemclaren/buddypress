@@ -35,7 +35,7 @@
 					<input type="text" name="key" id="key" value="" />
 
 					<p class="submit">
-						<input type="submit" name="submit" value="<?php _e( 'Activate', 'buddypress' ); ?>" />
+						<input type="submit" name="submit" class="button button-gray" value="<?php _e( 'Activate', 'buddypress' ); ?>" />
 					</p>
 
 				</form>
